@@ -274,6 +274,46 @@ footer .mega{font-size:clamp(44px,11vw,190px);letter-spacing:.08em}
 .hero-title,.svc-head h2,.exp-title,.acad h2,.cta-title{line-height:1.12}
 footer .mega{padding:.1em 0 .15em;overflow:visible;white-space:normal;word-break:keep-all}
 @media (max-width:700px){.cta-title{font-size:clamp(22px,7vw,52px);letter-spacing:.01em}.hero-title{letter-spacing:.03em;font-size:8.6vw}.exp-title,.acad h2{font-size:clamp(24px,7.4vw,44px)}.svc-head h2{font-size:clamp(28px,9vw,54px)}footer .mega{font-size:15vw}}
+
+/* ---------- mobile polish ---------- */
+.logo span small{font-size:8.5px;color:#e4e2ea}
+@media (max-width:780px){
+  .hero-meta{top:auto;bottom:calc(clamp(24px,4vh,48px) + 150px);left:20px;right:20px;justify-content:flex-start;gap:10px;flex-wrap:wrap;font-size:9px;letter-spacing:.16em}
+  .hero-meta span{background:rgba(0,0,0,.72);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.14);border-radius:100px;padding:7px 12px;text-align:left!important}
+  .hero-meta span br{display:none}
+  #hero::before{height:48%}
+  nav{background:linear-gradient(to bottom,rgba(0,0,0,.92) 55%,transparent)}
+}
+
+/* ---------- footer brand wordmark ---------- */
+.mega-logo{grid-column:1/-1;margin-top:40px;width:100%;aspect-ratio:1582/440;
+  background:linear-gradient(178deg,#ffffff 0%,#d4d4dd 34%,#6d6b7a 50%,#f1f1f6 66%,#9c9aab 100%);
+  -webkit-mask:url(media/wordmark.png) center/contain no-repeat;mask:url(media/wordmark.png) center/contain no-repeat;
+  filter:drop-shadow(0 0 30px rgba(176,38,255,.35))}
+/* ---------- hero meta separator ---------- */
+.hero-meta .sep{display:none;font-style:normal}
+@media (max-width:780px){
+  .hero-meta{bottom:calc(clamp(24px,4vh,48px) + 165px);font-size:8.5px;letter-spacing:.1em}
+  .hero-meta .sep{display:inline}
+  .hero-meta .m-hide{display:none}
+}
+/* ---------- WhatsApp button ---------- */
+.wa-btn{position:relative;display:inline-flex;align-items:center;gap:18px;padding:14px 26px 14px 14px;border-radius:100px;color:#fff;
+  background:linear-gradient(#08070b,#08070b) padding-box,linear-gradient(120deg,#ffffff,#8f8d9c 30%,#d68bff 55%,#ffffff 75%,#7b2bd0) border-box;
+  border:1.5px solid transparent;box-shadow:0 0 0 1px rgba(176,38,255,.15),0 18px 60px rgba(176,38,255,.35);overflow:hidden;
+  transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s}
+.wa-btn::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.22),transparent);
+  transform:skewX(-20deg);animation:waShine 3.2s ease-in-out infinite}
+@keyframes waShine{0%,55%{left:-60%}100%{left:130%}}
+.wa-btn:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 0 0 1px rgba(214,139,255,.5),0 24px 80px rgba(176,38,255,.6)}
+.wa-ico{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;flex:none;color:#fff;
+  background:radial-gradient(circle at 35% 30%,#e7b8ff,#b026ff 55%,#5b00a0);box-shadow:0 0 24px rgba(176,38,255,.7)}
+.wa-txt{display:flex;flex-direction:column;text-align:left;font-family:var(--tech);font-size:clamp(13px,1.3vw,17px);letter-spacing:.08em;text-transform:uppercase;line-height:1.3}
+.wa-txt small{font-family:var(--sans);text-transform:none;letter-spacing:.02em;font-size:12px;color:#c4c1cf;margin-bottom:3px}
+.wa-arrow{font-size:22px;color:#d68bff;transition:transform .4s}
+.wa-btn:hover .wa-arrow{transform:translateX(6px)}
+.wa-num{margin-top:18px;font-size:13px;color:#c4c1cf;letter-spacing:.04em}
+@media (max-width:520px){.wa-btn{width:100%;gap:12px;padding-right:18px}.wa-ico{width:46px;height:46px}.wa-txt{font-size:12px;flex:1}}
 .nogl #stage{background:radial-gradient(60% 50% at 50% 40%, #2a0a40, var(--ink))}
 </style>
 </head>
@@ -309,7 +349,7 @@ footer .mega{padding:.1em 0 .15em;overflow:visible;white-space:normal;word-break
 <main>
   <!-- HERO -->
   <section id="hero">
-    <div class="hero-meta"><span>(01) Estudio privado<br>Una clienta por vez</span><span>Mendoza<br>Solo con turno</span></div>
+    <div class="hero-meta"><span>(01) Estudio privado<i class="sep"> · </i><br>Una clienta por vez</span><span class="m-hide">Mendoza<br>Solo con turno</span></div>
     <h1 class="hero-title">
       <span class="reveal"><span>Tu mirada,</span></span>
       <span class="reveal r2"><span>tu</span><span><em>firma</em></span></span>
@@ -432,7 +472,12 @@ footer .mega{padding:.1em 0 .15em;overflow:visible;white-space:normal;word-break
     <span class="tag fade">(06) Reservas</span>
     <h2 class="cta-title io" style="margin-top:3vh"><span class="reveal"><span>¿Agendamos</span></span><span class="reveal"><span><em>tu turno?</em></span></span></h2>
     <p class="cta-sub fade">Tengo pocos turnos porque atiendo de a una. Escribime por WhatsApp y te paso horarios. La dirección te la mando cuando confirmás.</p>
-    <a class="cta-circle fade" data-hover href="https://wa.me/5492616716742?text=Hola%20SnakeSkin!%20Quiero%20reservar%20un%20turno%20%F0%9F%90%8D">Escribime<b>WhatsApp</b></a>
+    <a class="wa-btn fade" data-hover href="https://wa.me/5492616716742?text=Hola%20SnakeSkin!%20Quiero%20reservar%20un%20turno%20%F0%9F%90%8D">
+      <span class="wa-ico"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M12 2.2a9.8 9.8 0 0 0-8.5 14.7L2.2 21.8l5-1.3A9.8 9.8 0 1 0 12 2.2Zm0 1.8a8 8 0 1 1-4.1 14.9l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 0 1 12 4Zm-3.3 4c-.2 0-.5 0-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5 0 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.4l-1.9-.9c-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.3.2-.6.1a6.6 6.6 0 0 1-3.2-2.8c-.2-.4.2-.4.7-1.3.1-.2 0-.4 0-.5l-.9-2.1c-.2-.5-.4-.5-.6-.5h-.5Z"/></svg></span>
+      <span class="wa-txt"><small>Reservá tu turno</small>Escribime por WhatsApp</span>
+      <span class="wa-arrow">→</span>
+    </a>
+    <p class="wa-num fade">+54 9 261 671-6742 · Respondo en el día</p>
   </section>
 </main>
 
@@ -441,7 +486,7 @@ footer .mega{padding:.1em 0 .15em;overflow:visible;white-space:normal;word-break
   <div><b>Horarios</b>Con cita previa<br>Lunes a sábado</div>
   <div><b>Contacto</b><a href="https://wa.me/5492616716742">WhatsApp</a><br><a href="https://instagram.com/snakeskin.lash">@snakeskin.lash</a></div>
   <div><b>©</b>SnakeSkin Lash Studio<br>2026</div>
-  <div class="mega">Snake<em>Skin</em></div>
+  <div class="mega-logo" role="img" aria-label="SNAKE Lash Studio"></div>
 </footer>
 
 <script type="importmap">
@@ -772,7 +817,7 @@ for(const side of [1,-1]){
 window.__loadTarget(95);
 
 /* ---------- Scale ring ---------- */
-const SC = isMobile?260:520;
+const SC = isMobile?140:520;
 const scaleGeo=new THREE.OctahedronGeometry(1,0); scaleGeo.scale(.075,.115,.02);
 const scaleMat=new THREE.MeshStandardMaterial({metalness:.95,roughness:.28,envMapIntensity:1.3});
 const scales=new THREE.InstancedMesh(scaleGeo,scaleMat,SC);
@@ -834,7 +879,7 @@ function frame(){
   const mid=clamp((y-vh)/(endStart-vh||1),0,1);
   let tx,ty,ts,op;
   if(isMobile){
-    tx=0; ty=lerp(.55,1.2,p1); ts=lerp(.62,.55,p1); op=lerp(1,.22,p1);
+    tx=0; ty=lerp(.15,1.0,p1); ts=lerp(.78,.6,p1); op=lerp(1,.1,p1);
     ty=lerp(ty,.7,pe); ts=lerp(ts,.6,pe); op=lerp(op,1,pe);
   } else {
     tx=lerp(0,2.5,p1); ty=lerp(.55,.25,p1)+Math.sin(mid*Math.PI*2)*.15; ts=lerp(.9,.78,p1);
@@ -871,7 +916,7 @@ function frame(){
   for(let i=0;i<SC;i++){
     const s=sData[i];
     const a=s.a+spin*(.5+s.sp*.3)+ s.spin*cur.spread*.6;
-    const rr=s.rr*(1+cur.spread*s.sp*.9);
+    const rr=s.rr*(isMobile?1.45:1)*(1+cur.spread*s.sp*.9);
     dummy.position.set(Math.cos(a)*rr, Math.sin(a)*rr*.82, s.z+cur.spread*s.dz);
     dummy.rotation.set(s.rx+t*.2*s.spin, s.ry+cur.spread*3*s.spin, a+Math.PI/2);
     dummy.scale.setScalar(s.s*(1-cur.spread*.25));
