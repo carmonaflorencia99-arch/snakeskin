@@ -101,6 +101,7 @@ section{position:relative;padding:0 clamp(20px,3vw,44px)}
 
 /* ---------- Manifesto ---------- */
 #manifiesto{min-height:170vh}
+@media (max-width:780px){#manifiesto{min-height:125vh}}
 .mani-sticky{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;max-width:1180px}
 .mani-text{max-width:min(100%,62vw);font-family:var(--serif);font-size:clamp(30px,4.6vw,72px);line-height:1.08;letter-spacing:-.015em;margin-top:28px}
 .mani-text .w{opacity:.14;transition:opacity .25s linear}
@@ -326,6 +327,56 @@ footer .mega{padding:.1em 0 .15em;overflow:visible;white-space:normal;word-break
 .book-btn .wa-arrow{color:#fff}
 .book-btn:hover .wa-arrow{transform:translateX(6px)}
 @media (max-width:520px){.cta-btns{flex-direction:column;width:100%}.book-btn{width:100%;gap:12px;padding-right:18px}.book-btn .wa-ico{width:46px;height:46px}}
+
+/* ---------- booking UX ---------- */
+.nav-book{border:1px solid rgba(214,139,255,.7);border-radius:100px;padding:9px 16px!important;background:rgba(176,38,255,.18);box-shadow:0 0 18px rgba(176,38,255,.35)}
+.nav-book::after{display:none}
+.hero-ctas{display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+.hero-book{display:inline-flex;align-items:center;gap:12px;padding:16px 26px;border-radius:100px;font-family:var(--tech);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#fff;
+  background:radial-gradient(circle at 25% 20%,#e7b8ff 0%,#b026ff 45%,#5b00a0 100%);box-shadow:0 0 40px rgba(176,38,255,.55);transition:transform .4s,box-shadow .4s}
+.hero-book:hover{transform:translateY(-3px);box-shadow:0 0 60px rgba(176,38,255,.8)}
+.hero-book span{transition:transform .4s}.hero-book:hover span{transform:translateX(5px)}
+.hero-link{font-family:var(--tech);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#e4e2ea;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:4px}
+.svc{color:inherit;text-decoration:none;cursor:pointer}
+.svc-go{position:absolute;right:0;bottom:8px;font-family:var(--tech);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#d68bff;opacity:0;transform:translateX(-8px);transition:opacity .4s,transform .4s}
+.svc:hover .svc-go,.svc:focus-visible .svc-go{opacity:1;transform:none}
+.svc.feature .svc-go{right:28px;bottom:12px}
+@media (hover:none){.svc-go{opacity:1;transform:none;position:static;grid-column:1/-1;justify-self:end;margin-top:-4px}}
+.book-steps{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:900px;margin:0 auto 5vh;padding:0;text-align:left}
+.book-steps li{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;border:1px solid var(--line);border-radius:16px;background:rgba(0,0,0,.65);backdrop-filter:blur(6px)}
+.book-steps b{font-family:var(--tech);font-weight:400;font-size:13px;color:#d68bff;letter-spacing:.1em;padding-top:2px}
+.book-steps span{font-size:14px;line-height:1.5;color:#e4e2ea}
+@media (max-width:780px){.book-steps{grid-template-columns:1fr}}
+#resenas{padding-top:4vh;padding-bottom:14vh}
+.rv-score{font-size:15px;color:#e4e2ea;margin-bottom:4vh}
+.rv-score b{font-family:var(--tech);color:#fff}
+.rv-stars{color:#d68bff;letter-spacing:.15em;text-shadow:0 0 14px rgba(176,38,255,.7)}
+.rv-track{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.rv{margin:0;padding:28px 26px;border:1px solid var(--line);border-radius:20px;background:rgba(8,6,12,.82);display:flex;flex-direction:column;justify-content:space-between;gap:20px;min-height:200px}
+.rv blockquote{margin:0;font-size:16px;line-height:1.6;color:#f1f0f4}
+.rv figcaption{font-family:var(--tech);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#d68bff}
+.rv-actions{display:flex;gap:22px;align-items:center;flex-wrap:wrap;margin-top:5vh}
+@media (max-width:900px){.rv-track{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:82%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;margin:0 -20px;padding-left:20px;padding-right:20px}
+  .rv{scroll-snap-align:start}}
+.m-bar{display:none}
+@media (max-width:780px){
+  .m-bar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;gap:10px;transform:translateY(140%);transition:transform .5s cubic-bezier(.16,1,.3,1);padding-bottom:env(safe-area-inset-bottom)}
+  .m-bar.show{transform:none}
+  .m-bar-book{flex:1;display:flex;align-items:center;justify-content:center;min-height:54px;border-radius:100px;font-family:var(--tech);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#fff;
+    background:radial-gradient(circle at 25% 20%,#e7b8ff 0%,#b026ff 45%,#5b00a0 100%);box-shadow:0 8px 30px rgba(176,38,255,.6)}
+  .m-bar-wa{width:54px;height:54px;flex:none;display:grid;place-items:center;border-radius:50%;color:#fff;background:#0b0a0e;border:1px solid rgba(214,139,255,.6);box-shadow:0 8px 30px rgba(0,0,0,.6)}
+  nav ul li:not(:last-child){display:none}
+  .nav-book{font-size:9px}
+  .hero-foot{flex-direction:column;align-items:stretch}
+  .hero-ctas{align-items:stretch}
+  .hero-book{justify-content:center}
+  .hero-link{align-self:center}
+  footer{padding-bottom:90px}
+}
+
+.logo span{white-space:nowrap}
+.nav-book{white-space:nowrap}
+@media (max-width:780px){.d-only{display:none}.hero-meta{display:none}.logo img{height:32px}.logo span{font-size:12px;letter-spacing:.32em}.logo span small{font-size:7px;letter-spacing:.38em}}
 .nogl #stage{background:radial-gradient(60% 50% at 50% 40%, #2a0a40, var(--ink))}
 </style>
 </head>
@@ -354,7 +405,7 @@ footer .mega{padding:.1em 0 .15em;overflow:visible;white-space:normal;word-break
     <li><a href="#servicios">Servicios</a></li>
     <li><a href="#experiencia">Experiencia</a></li>
     <li><a href="#academy">Academy</a></li>
-    <li><a href="#reservar">Reservar</a></li>
+    <li><a class="nav-book" href="https://snakeskinlashstudio.setmore.com/" target="_blank" rel="noopener">Reservar<span class="d-only"> turno</span></a></li>
   </ul>
 </nav>
 
@@ -368,7 +419,7 @@ footer .mega{padding:.1em 0 .15em;overflow:visible;white-space:normal;word-break
     </h1>
     <div class="hero-foot">
       <p class="fade">Hago pestañas icónicas, que se notan y te duran. Te despertás <i>ready</i>, sin maquillaje y sin vueltas.</p>
-      <div class="scroll-cue fade"><i></i>Scroll</div>
+      <div class="hero-ctas fade"><a class="hero-book" href="https://snakeskinlashstudio.setmore.com/" target="_blank" rel="noopener">Reservá tu turno <span>→</span></a><a class="hero-link" href="#servicios">Ver servicios y precios</a></div>
     </div>
   </section>
 
@@ -394,34 +445,34 @@ footer .mega{padding:.1em 0 .15em;overflow:visible;white-space:normal;word-break
 
     <div class="svc-group fade">
       <h3><span>Extensiones</span><span>Set completo</span></h3>
-      <div class="svc" data-hover><span class="n">01</span><span class="name">Extensiones clásicas<small>Una por cada pestaña. Natural, prolijo, como las tuyas pero mejores.</small></span><span class="dur">90 min</span><span class="price">$32.000</span></div>
-      <div class="svc" data-hover><span class="n">02</span><span class="name">Volumen tecnológico<small>Más lleno y tupido, pero liviano. Ni te das cuenta de que las tenés puestas.</small></span><span class="dur">120 min</span><span class="price">$35.000</span></div>
-      <div class="svc" data-hover><span class="n">03</span><span class="name">Wet effect<small>Ese efecto recién salida del agua, con puntitas definidas. Re sexy.</small></span><span class="dur">120 min</span><span class="price">$36.000</span></div>
-      <div class="svc" data-hover><span class="n">04</span><span class="name">Efecto fantasía<small>Kim K, foxy, anime… para las que quieren que se note.</small></span><span class="dur">180 min</span><span class="price">$40.000</span></div>
+      <a class="svc" data-hover href="https://snakeskinlashstudio.setmore.com/" target="_blank" rel="noopener"><span class="n">01</span><span class="name">Extensiones clásicas<small>Una por cada pestaña. Natural, prolijo, como las tuyas pero mejores.</small></span><span class="dur">90 min</span><span class="price">$32.000</span><span class="svc-go">Reservar →</span></a>
+      <a class="svc" data-hover href="https://snakeskinlashstudio.setmore.com/" target="_blank" rel="noopener"><span class="n">02</span><span class="name">Volumen tecnológico<small>Más lleno y tupido, pero liviano. Ni te das cuenta de que las tenés puestas.</small></span><span class="dur">120 min</span><span class="price">$35.000</span><span class="svc-go">Reservar →</span></a>
+      <a class="svc" data-hover href="https://snakeskinlashstudio.setmore.com/" target="_blank" rel="noopener"><span class="n">03</span><span class="name">Wet effect<small>Ese efecto recién salida del agua, con puntitas definidas. Re sexy.</small></span><span class="dur">120 min</span><span class="price">$36.000</span><span class="svc-go">Reservar →</span></a>
+      <a class="svc" data-hover href="https://snakeskinlashstudio.setmore.com/" target="_blank" rel="noopener"><span class="n">04</span><span class="name">Efecto fantasía<small>Kim K, foxy, anime… para las que quieren que se note.</small></span><span class="dur">180 min</span><span class="price">$40.000</span><span class="svc-go">Reservar →</span></a>
     </div>
 
     <div class="svc-group fade">
       <h3><span>Service</span><span>Hasta 21 días</span></h3>
-      <div class="svc" data-hover><span class="n">05</span><span class="name">Service clásicas<small>Para que tus clásicas sigan impecables. Hasta 21 días desde tu último turno.</small></span><span class="dur">60 min</span><span class="price">$21.000</span></div>
-      <div class="svc" data-hover><span class="n">06</span><span class="name">Service volumen / wet<small>Repasamos tu volumen o wet. Hasta 21 días desde tu último turno.</small></span><span class="dur">75 min</span><span class="price">$24.000</span></div>
-      <div class="svc" data-hover><span class="n">07</span><span class="name">Retiro<small>Te las saco sin dañar tus pestañas. Si te hacés un set nuevo, el retiro va de regalo.</small></span><span class="dur">40 min</span><span class="price">$12.000</span></div>
+      <a class="svc" data-hover href="https://snakeskinlashstudio.setmore.com/" target="_blank" rel="noopener"><span class="n">05</span><span class="name">Service clásicas<small>Para que tus clásicas sigan impecables. Hasta 21 días desde tu último turno.</small></span><span class="dur">60 min</span><span class="price">$21.000</span><span class="svc-go">Reservar →</span></a>
+      <a class="svc" data-hover href="https://snakeskinlashstudio.setmore.com/" target="_blank" rel="noopener"><span class="n">06</span><span class="name">Service volumen / wet<small>Repasamos tu volumen o wet. Hasta 21 días desde tu último turno.</small></span><span class="dur">75 min</span><span class="price">$24.000</span><span class="svc-go">Reservar →</span></a>
+      <a class="svc" data-hover href="https://snakeskinlashstudio.setmore.com/" target="_blank" rel="noopener"><span class="n">07</span><span class="name">Retiro<small>Te las saco sin dañar tus pestañas. Si te hacés un set nuevo, el retiro va de regalo.</small></span><span class="dur">40 min</span><span class="price">$12.000</span><span class="svc-go">Reservar →</span></a>
     </div>
 
     <div class="svc-group fade">
       <h3><span>Lifting &amp; cejas</span><span>Natural</span></h3>
-      <div class="svc" data-hover><span class="n">08</span><span class="name">Lifting<small>Tus pestañas, pero arriba y curvadas. Cero mantenimiento.</small></span><span class="dur">60 min</span><span class="price">$25.000</span></div>
-      <div class="svc" data-hover><span class="n">09</span><span class="name">Lifting + tinte<small>Curvadas y bien negras. Te olvidás del rímel por semanas.</small></span><span class="dur">75 min</span><span class="price">$28.000</span></div>
-      <div class="svc" data-hover><span class="n">10</span><span class="name">Laminado + diseño de cejas<small>Cejas peinadas todo el día y con la forma perfecta para tu cara.</small></span><span class="dur">60 min</span><span class="price">$25.000</span></div>
-      <div class="svc" data-hover><span class="n">11</span><span class="name">Diseño de cejas con hilo<small>Defino tu forma natural, prolijo y sin irritar.</small></span><span class="dur">30 min</span><span class="price">$13.000</span></div>
-      <div class="svc" data-hover><span class="n">12</span><span class="name">Tinte de cejas<small>Un toque de color para que tus cejas se vean más llenas.</small></span><span class="dur">15 min</span><span class="price">$10.000</span></div>
+      <a class="svc" data-hover href="https://snakeskinlashstudio.setmore.com/" target="_blank" rel="noopener"><span class="n">08</span><span class="name">Lifting<small>Tus pestañas, pero arriba y curvadas. Cero mantenimiento.</small></span><span class="dur">60 min</span><span class="price">$25.000</span><span class="svc-go">Reservar →</span></a>
+      <a class="svc" data-hover href="https://snakeskinlashstudio.setmore.com/" target="_blank" rel="noopener"><span class="n">09</span><span class="name">Lifting + tinte<small>Curvadas y bien negras. Te olvidás del rímel por semanas.</small></span><span class="dur">75 min</span><span class="price">$28.000</span><span class="svc-go">Reservar →</span></a>
+      <a class="svc" data-hover href="https://snakeskinlashstudio.setmore.com/" target="_blank" rel="noopener"><span class="n">10</span><span class="name">Laminado + diseño de cejas<small>Cejas peinadas todo el día y con la forma perfecta para tu cara.</small></span><span class="dur">60 min</span><span class="price">$25.000</span><span class="svc-go">Reservar →</span></a>
+      <a class="svc" data-hover href="https://snakeskinlashstudio.setmore.com/" target="_blank" rel="noopener"><span class="n">11</span><span class="name">Diseño de cejas con hilo<small>Defino tu forma natural, prolijo y sin irritar.</small></span><span class="dur">30 min</span><span class="price">$13.000</span><span class="svc-go">Reservar →</span></a>
+      <a class="svc" data-hover href="https://snakeskinlashstudio.setmore.com/" target="_blank" rel="noopener"><span class="n">12</span><span class="name">Tinte de cejas<small>Un toque de color para que tus cejas se vean más llenas.</small></span><span class="dur">15 min</span><span class="price">$10.000</span><span class="svc-go">Reservar →</span></a>
 
-      <div class="svc feature" data-hover><span class="name"><span class="badge">Combo</span><br>The Ultimate Glow<small>Pestañas y cejas listas en un solo turno: lifting + tinte + laminado y diseño. Te sale menos que por separado.</small></span><span class="price"><s>$53.000</s>$45.000</span></div>
+      <a class="svc feature" data-hover href="https://snakeskinlashstudio.setmore.com/" target="_blank" rel="noopener"><span class="name"><span class="badge">Combo</span><br>The Ultimate Glow<small>Pestañas y cejas listas en un solo turno: lifting + tinte + laminado y diseño. Te sale menos que por separado.</small></span><span class="price"><s>$53.000</s>$45.000</span><span class="svc-go">Reservar →</span></a>
     </div>
 
     <div class="svc-group fade">
       <h3><span>Make up</span><span>Eventos</span></h3>
-      <div class="svc" data-hover><span class="n">13</span><span class="name">Maquillaje social<small>Para tu evento: te maquillo con productos de larga duración para que llegues divina al final de la noche.</small></span><span class="dur">60 min</span><span class="price">$90.000</span></div>
-      <div class="wide-vid"><video data-lazy src="media/makeup.mp4" poster="media/makeup.jpg" muted loop playsinline preload="none"></video></div>
+      <a class="svc" data-hover href="https://snakeskinlashstudio.setmore.com/" target="_blank" rel="noopener"><span class="n">13</span><span class="name">Maquillaje social<small>Para tu evento: te maquillo con productos de larga duración para que llegues divina al final de la noche.</small></span><span class="dur">60 min</span><span class="price">$90.000</span><span class="svc-go">Reservar →</span></a>
+      <div class="wide-vid"><video data-lazy src="media/makeup.mp4" poster="media/makeup.webp" muted loop playsinline preload="none"></video></div>
     </div>
   </section>
 
@@ -435,8 +486,8 @@ footer .mega{padding:.1em 0 .15em;overflow:visible;white-space:normal;word-break
         <p class="reels-big">Te reís, charlás o descansás. Lo decidís vos.</p>
         <p class="reels-small">Y sí, Lyra también trabaja acá: cobra en caricias y galletitas 🐾</p>
       </div>
-      <figure class="phone fade"><video data-lazy src="media/turno.mp4" poster="media/turno.jpg" muted loop playsinline preload="none"></video><figcaption>Tu turno conmigo</figcaption></figure>
-      <figure class="phone fade"><video data-lazy src="media/lyra.mp4" poster="media/lyra.jpg" muted loop playsinline preload="none"></video><figcaption>Lyra, mi recepcionista</figcaption></figure>
+      <figure class="phone fade"><video data-lazy src="media/turno.mp4" poster="media/turno.webp" muted loop playsinline preload="none"></video><figcaption>Tu turno conmigo</figcaption></figure>
+      <figure class="phone fade"><video data-lazy src="media/lyra.mp4" poster="media/lyra.webp" muted loop playsinline preload="none"></video><figcaption>Lyra, mi recepcionista</figcaption></figure>
     </div>
     <div class="exp-grid">
       <div class="exp-card fade"><span class="num">01</span><div><h4>Llegás</h4><p>Te espera un té o un café, música tranqui y la camilla lista. Vos solo vení sin maquillaje en los ojos.</p></div></div>
@@ -445,9 +496,25 @@ footer .mega{padding:.1em 0 .15em;overflow:visible;white-space:normal;word-break
     </div>
   </section>
 
+  <!-- RESEÑAS -->
+  <section id="resenas">
+    <span class="tag fade">Reseñas reales</span>
+    <h2 class="exp-title io" style="margin-bottom:3vh"><span class="reveal"><span>Lo que dicen</span></span><span class="reveal"><span>mis <em>clientas</em></span></span></h2>
+    <p class="rv-score fade"><span class="rv-stars" aria-hidden="true">★★★★★</span> <b>5.0</b> · 13 reseñas en mi agenda online</p>
+    <div class="rv-track">
+      <figure class="rv fade"><blockquote>“Ella es la mejor! Profesionalmente y humanamente. Excelente servicio, precio y sobre todo calidad. Recomendada al 100%”</blockquote><figcaption>Romina A.</figcaption></figure>
+      <figure class="rv fade"><blockquote>“Hermoso lugar, la atención de Flor es increíble, está en cada detalle, cada vez que voy me siento muy cómoda!”</blockquote><figcaption>Sol</figcaption></figure>
+      <figure class="rv fade"><blockquote>“Increíble trabajo siempre impecable y hasta el último detalle. Genia Flor”</blockquote><figcaption>Virginia</figcaption></figure>
+      <figure class="rv fade"><blockquote>“Muy prolija y limpia, me encanta ir a hacerme las pestañas con Flor. Siempre me las deja hermosas”</blockquote><figcaption>Julieta</figcaption></figure>
+      <figure class="rv fade"><blockquote>“Hermoso el trabajo de Flor, súper cálida y atenta, la súper recomiendo 💖”</blockquote><figcaption>Andrea P.</figcaption></figure>
+      <figure class="rv fade"><blockquote>“Muy bien servicio el de Flor. Vengo desde Bs As y a veces cuesta encontrar un lugar donde atenderte y sentirte a gusto. Gracias!!!! 🤍”</blockquote><figcaption>Noelia</figcaption></figure>
+    </div>
+    <div class="rv-actions fade"><a class="hero-book" href="https://snakeskinlashstudio.setmore.com/" target="_blank" rel="noopener">Quiero mi turno <span>→</span></a><a class="hero-link" href="https://snakeskinlashstudio.setmore.com/reviews?sortBy=highestRated" target="_blank" rel="noopener">Ver las 13 reseñas</a></div>
+  </section>
+
   <!-- MITOS -->
   <section id="mitos">
-    <span class="tag fade">(04) Mitos y verdades</span>
+    <span class="tag fade">Mitos y verdades</span>
     <h2 class="exp-title io" style="margin-bottom:6vh"><span class="reveal"><span>Lo que te</span></span><span class="reveal"><span><em>dijeron</em> (y no es así)</span></span></h2>
     <div class="faq">
       <details class="fade"><summary><span>Mito 01</span>Las extensiones dañan tus pestañas</summary><p><b>Verdad:</b> si se aplican bien, con buenos productos y un diseño pensado para vos, no dañan tus pestañas naturales.</p></details>
@@ -484,6 +551,11 @@ footer .mega{padding:.1em 0 .15em;overflow:visible;white-space:normal;word-break
     <span class="tag fade">(06) Reservas</span>
     <h2 class="cta-title io" style="margin-top:3vh"><span class="reveal"><span>¿Agendamos</span></span><span class="reveal"><span><em>tu turno?</em></span></span></h2>
     <p class="cta-sub fade">Tengo pocos turnos porque atiendo de a una. Reservá online eligiendo día y horario, o escribime por WhatsApp. La dirección te la mando cuando confirmás.</p>
+    <ol class="book-steps fade">
+      <li><b>01</b><span>Elegí tu servicio y un horario libre en mi agenda online.</span></li>
+      <li><b>02</b><span>Recibís la confirmación de tu turno.</span></li>
+      <li><b>03</b><span>Te paso la dirección del estudio y te espero.</span></li>
+    </ol>
     <div class="cta-btns fade">
     <a class="book-btn" data-hover href="https://snakeskinlashstudio.setmore.com/" target="_blank" rel="noopener">
       <span class="wa-ico"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M3 10h18M8 3v4M16 3v4M9 15l2 2 4-4"></path></svg></span>
@@ -496,9 +568,14 @@ footer .mega{padding:.1em 0 .15em;overflow:visible;white-space:normal;word-break
       <span class="wa-arrow">→</span>
     </a>
     </div>
-    <p class="wa-num fade">+54 9 261 671-6742 · Respondo en el día</p>
+    <p class="wa-num fade">¿Dudas? Por WhatsApp te responden al toque · +54 9 261 671-6742</p>
   </section>
 </main>
+
+<div class="m-bar" id="mbar">
+  <a class="m-bar-book" href="https://snakeskinlashstudio.setmore.com/" target="_blank" rel="noopener">Reservar turno</a>
+  <a class="m-bar-wa" href="https://wa.me/5492616716742?text=Hola%20SnakeSkin!%20Quiero%20reservar%20un%20turno%20%F0%9F%90%8D" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M12 2.2a9.8 9.8 0 0 0-8.5 14.7L2.2 21.8l5-1.3A9.8 9.8 0 1 0 12 2.2Zm0 1.8a8 8 0 1 1-4.1 14.9l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 0 1 12 4Zm-3.3 4c-.2 0-.5 0-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5 0 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.4l-1.9-.9c-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.3.2-.6.1a6.6 6.6 0 0 1-3.2-2.8c-.2-.4.2-.4.7-1.3.1-.2 0-.4 0-.5l-.9-2.1c-.2-.5-.4-.5-.6-.5h-.5Z"/></svg></a>
+</div>
 
 <footer>
   <div><b>Estudio</b>Estudio privado<br>Mendoza, Argentina<br>Ubicación al confirmar turno</div>
@@ -524,9 +601,10 @@ footer .mega{padding:.1em 0 .15em;overflow:visible;white-space:normal;word-break
   const lv=document.getElementById('lvid');
   const finishIntro=()=>{introDone=true};
   if(lv){ lv.src = matchMedia('(max-aspect-ratio: 1/1)').matches ? 'media/intro-m.mp4' : 'media/intro.mp4';
+    lv.playbackRate=2; lv.addEventListener('loadedmetadata',()=>{lv.playbackRate=2;});
     lv.addEventListener('ended',finishIntro); lv.addEventListener('error',finishIntro);
     const pp=lv.play(); if(pp&&pp.catch) pp.catch(finishIntro); } else finishIntro();
-  setTimeout(finishIntro,11500);
+  setTimeout(finishIntro, matchMedia('(max-width: 800px)').matches ? 3800 : 5200);
   document.getElementById('lskip').addEventListener('click',()=>{finishIntro(); window.__loadTarget(100);}); window.__loadTarget=v=>{target=Math.max(target,v)};
   const t0=performance.now();
   (function tick(){
@@ -539,7 +617,7 @@ footer .mega{padding:.1em 0 .15em;overflow:visible;white-space:normal;word-break
       document.querySelectorAll('#hero .reveal, #hero .fade').forEach(el=>el.parentElement.classList.add('in'));
       document.querySelector('#hero').classList.add('in');},250);
   })();
-  setTimeout(()=>window.__loadTarget(100),6000); // safety
+  setTimeout(()=>window.__loadTarget(100),4500); // safety
 
   // Cursor
   const c=document.getElementById('cursor'), d=document.getElementById('cursorDot');
@@ -560,6 +638,11 @@ footer .mega{padding:.1em 0 .15em;overflow:visible;white-space:normal;word-break
     if(e.isIntersecting){ if(v.preload==='none'){v.preload='auto';v.load();} const p=v.play(); if(p&&p.catch)p.catch(()=>{}); }
     else v.pause();}),{threshold:.25});
   document.querySelectorAll('video[data-lazy]').forEach(v=>vio.observe(v));
+
+  // Mobile booking bar: show after the hero, hide near the booking section
+  const mbar=document.getElementById('mbar'), resv=document.getElementById('reservar');
+  function bar(){ if(!mbar) return; const past=scrollY>innerHeight*.7; const r=resv.getBoundingClientRect(); const atBook=r.top<innerHeight*.8 && r.bottom>0; mbar.classList.toggle('show',past && !atBook); }
+  addEventListener('scroll',bar,{passive:true}); bar();
 
   // Manifesto word scrub
   const mt=document.getElementById('maniText');
@@ -603,7 +686,7 @@ let renderer;
 try{
   renderer=new THREE.WebGLRenderer({antialias:true,alpha:false,powerPreference:'high-performance'});
 }catch(e){document.documentElement.classList.add('nogl');window.__loadTarget(100);throw e;}
-renderer.setPixelRatio(Math.min(devicePixelRatio, isMobile?1.5:2));
+renderer.setPixelRatio(Math.min(devicePixelRatio, isMobile?1.25:1.75));
 renderer.setSize(innerWidth,innerHeight);
 renderer.toneMapping=THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure=1.05;
@@ -655,6 +738,7 @@ const snakeTex=snakeTexture();
 /* ---------- Eye ---------- */
 const eyeRoot=new THREE.Group(); scene.add(eyeRoot);
 const doll=new THREE.Group(); eyeRoot.add(doll);
+let spriteMode=false;
 
 const eyeMat=new THREE.ShaderMaterial({
   uniforms:{uTime:{value:0},uPupil:{value:.18}},
@@ -915,7 +999,7 @@ function frame(){
   const lookX = isMobile? Math.sin(t*.6)*.35 : smx*.55 - cur.x*.15;
   const lookY = isMobile? Math.sin(t*.43)*.18 : smy*.35;
   for(const e of eyes){ e.ball.rotation.y=lookX*.7*Math.sign(e.g.scale.x); e.ball.rotation.x=-lookY*.5; }
-  doll.rotation.y=lookX*.45 + Math.sin(t*.3)*.05 - p1*.35*(1-pe);
+  doll.rotation.y=(lookX*.45 + Math.sin(t*.3)*.05 - p1*.35*(1-pe))*(spriteMode?.35:1);
   doll.rotation.x=-lookY*.18;
   doll.rotation.z=Math.sin(t*.25)*.03;
   eyeMat.uniforms.uPupil.value=.17+Math.sin(t*.7)*.015+ (1-Math.min(1,Math.hypot(smx,smy)))*.03;
@@ -950,7 +1034,7 @@ function frame(){
   camera.position.y=lerp(camera.position.y,smy*.15,.05);
   camera.lookAt(cur.x*.35,0,0);
 
-  composer.render();
+  if(!(isMobile && cur.op<.13)){ if(isMobile) renderer.render(scene,camera); else composer.render(); }
   requestAnimationFrame(frame);
 }
 frame();
@@ -967,12 +1051,30 @@ function onMuse(g){
     mt.needsUpdate=true; } });
   while(doll.children.length) doll.remove(doll.children[0]);
   doll.add(m); museLoaded=true;
-  window.__loadTarget(100);
 }
-import('./doll-model.js').then(mod=>{
-  const bin=Uint8Array.from(atob(mod.default),c=>c.charCodeAt(0));
-  new GLTFLoader().parse(bin.buffer,'',onMuse,()=>window.__loadTarget(100));
-}).catch(()=>window.__loadTarget(100));
+new THREE.TextureLoader().load('media/avatar.webp', tex=>{
+  if(museLoaded) return;
+  tex.colorSpace=THREE.SRGBColorSpace; tex.anisotropy=4;
+  const Hh=4.1, Ww=Hh*640/784;
+  const plane=new THREE.Mesh(new THREE.PlaneGeometry(Ww,Hh), new THREE.MeshBasicMaterial({map:tex,transparent:true,alphaTest:.03,toneMapped:false,depthWrite:false}));
+  plane.position.set(0, 1.55-Hh/2, .3);
+  while(doll.children.length) doll.remove(doll.children[0]);
+  doll.add(plane); spriteMode=true;
+  window.__loadTarget(100);
+}, undefined, ()=>window.__loadTarget(100));
+
+function loadMuse(){
+  import('./doll-model.js').then(mod=>{
+    const bin=Uint8Array.from(atob(mod.default),c=>c.charCodeAt(0));
+    new GLTFLoader().parse(bin.buffer,'',g=>{ onMuse(g); spriteMode=false; },()=>{});
+  }).catch(()=>{});
+}
+const conn=navigator.connection||{};
+const lite = isMobile || conn.saveData || /(^|-)2g|3g/.test(conn.effectiveType||'');
+if(!lite){
+  const go=()=> (window.requestIdleCallback ? requestIdleCallback(loadMuse,{timeout:4000}) : setTimeout(loadMuse,1500));
+  if(document.readyState==='complete') setTimeout(go,1200); else addEventListener('load',()=>setTimeout(go,1200));
+}
 </script>
 </body>
 </html>
