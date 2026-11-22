@@ -314,6 +314,18 @@ footer .mega{padding:.1em 0 .15em;overflow:visible;white-space:normal;word-break
 .wa-btn:hover .wa-arrow{transform:translateX(6px)}
 .wa-num{margin-top:18px;font-size:13px;color:#c4c1cf;letter-spacing:.04em}
 @media (max-width:520px){.wa-btn{width:100%;gap:12px;padding-right:18px}.wa-ico{width:46px;height:46px}.wa-txt{font-size:12px;flex:1}}
+
+/* ---------- booking buttons ---------- */
+.cta-btns{display:flex;flex-wrap:wrap;gap:18px;justify-content:center}
+.book-btn{position:relative;display:inline-flex;align-items:center;gap:18px;padding:14px 26px 14px 14px;border-radius:100px;color:#fff;
+  background:radial-gradient(circle at 25% 20%,#e7b8ff 0%,#b026ff 45%,#5b00a0 100%);border:1.5px solid rgba(255,255,255,.35);
+  box-shadow:0 0 50px rgba(176,38,255,.55);transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s}
+.book-btn:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 0 80px rgba(176,38,255,.8)}
+.book-btn .wa-ico{background:rgba(0,0,0,.35);box-shadow:none}
+.book-btn .wa-txt small{color:#f3e2ff}
+.book-btn .wa-arrow{color:#fff}
+.book-btn:hover .wa-arrow{transform:translateX(6px)}
+@media (max-width:520px){.cta-btns{flex-direction:column;width:100%}.book-btn{width:100%;gap:12px;padding-right:18px}.book-btn .wa-ico{width:46px;height:46px}}
 .nogl #stage{background:radial-gradient(60% 50% at 50% 40%, #2a0a40, var(--ink))}
 </style>
 </head>
@@ -377,7 +389,7 @@ footer .mega{padding:.1em 0 .15em;overflow:visible;white-space:normal;word-break
   <section id="servicios">
     <div class="svc-head">
       <h2 class="io"><span class="reveal"><span>Elegí</span></span><span class="reveal"><span>tu <em>look</em></span></span></h2>
-      <p class="fade">Antes de empezar diseñamos juntas el estilo que mejor le queda a tu ojo. Nada de sets copiados. Todos los sets incluyen tu kit de cuidado.</p>
+      <p class="fade">Antes de empezar diseñamos juntas el estilo que mejor le queda a tu ojo. Nada de sets copiados. Todos los sets incluyen tu kit de cuidado. <a href="https://snakeskinlashstudio.setmore.com/" target="_blank" rel="noopener" style="color:#D68BFF">Reservá tu turno online →</a></p>
     </div>
 
     <div class="svc-group fade">
@@ -471,12 +483,19 @@ footer .mega{padding:.1em 0 .15em;overflow:visible;white-space:normal;word-break
   <section id="reservar">
     <span class="tag fade">(06) Reservas</span>
     <h2 class="cta-title io" style="margin-top:3vh"><span class="reveal"><span>¿Agendamos</span></span><span class="reveal"><span><em>tu turno?</em></span></span></h2>
-    <p class="cta-sub fade">Tengo pocos turnos porque atiendo de a una. Escribime por WhatsApp y te paso horarios. La dirección te la mando cuando confirmás.</p>
-    <a class="wa-btn fade" data-hover href="https://wa.me/5492616716742?text=Hola%20SnakeSkin!%20Quiero%20reservar%20un%20turno%20%F0%9F%90%8D">
+    <p class="cta-sub fade">Tengo pocos turnos porque atiendo de a una. Reservá online eligiendo día y horario, o escribime por WhatsApp. La dirección te la mando cuando confirmás.</p>
+    <div class="cta-btns fade">
+    <a class="book-btn" data-hover href="https://snakeskinlashstudio.setmore.com/" target="_blank" rel="noopener">
+      <span class="wa-ico"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M3 10h18M8 3v4M16 3v4M9 15l2 2 4-4"></path></svg></span>
+      <span class="wa-txt"><small>Elegí día y horario</small>Reservá online</span>
+      <span class="wa-arrow">→</span>
+    </a>
+    <a class="wa-btn" data-hover href="https://wa.me/5492616716742?text=Hola%20SnakeSkin!%20Quiero%20reservar%20un%20turno%20%F0%9F%90%8D">
       <span class="wa-ico"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M12 2.2a9.8 9.8 0 0 0-8.5 14.7L2.2 21.8l5-1.3A9.8 9.8 0 1 0 12 2.2Zm0 1.8a8 8 0 1 1-4.1 14.9l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 0 1 12 4Zm-3.3 4c-.2 0-.5 0-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5 0 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.4l-1.9-.9c-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.3.2-.6.1a6.6 6.6 0 0 1-3.2-2.8c-.2-.4.2-.4.7-1.3.1-.2 0-.4 0-.5l-.9-2.1c-.2-.5-.4-.5-.6-.5h-.5Z"/></svg></span>
       <span class="wa-txt"><small>Reservá tu turno</small>Escribime por WhatsApp</span>
       <span class="wa-arrow">→</span>
     </a>
+    </div>
     <p class="wa-num fade">+54 9 261 671-6742 · Respondo en el día</p>
   </section>
 </main>
@@ -484,7 +503,7 @@ footer .mega{padding:.1em 0 .15em;overflow:visible;white-space:normal;word-break
 <footer>
   <div><b>Estudio</b>Estudio privado<br>Mendoza, Argentina<br>Ubicación al confirmar turno</div>
   <div><b>Horarios</b>Con cita previa<br>Lunes a sábado</div>
-  <div><b>Contacto</b><a href="https://wa.me/5492616716742">WhatsApp</a><br><a href="https://instagram.com/snakeskin.lash">@snakeskin.lash</a></div>
+  <div><b>Contacto</b><a href="https://snakeskinlashstudio.setmore.com/" target="_blank" rel="noopener">Reservas online</a><br><a href="https://wa.me/5492616716742">WhatsApp</a><br><a href="https://instagram.com/snakeskin.lash">@snakeskin.lash</a></div>
   <div><b>©</b>SnakeSkin Lash Studio<br>2026</div>
   <div class="mega-logo" role="img" aria-label="SNAKE Lash Studio"></div>
 </footer>

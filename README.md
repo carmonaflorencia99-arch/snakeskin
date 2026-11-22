@@ -37,7 +37,13 @@ Después abrí http://localhost:8080 (o el puerto que indique).
 - Google Fonts: Michroma (títulos) y Manrope (textos).
 - Sin frameworks ni build: HTML, CSS y JS puros.
 
+## Dominio
+
+www.snakeskinlash.com → en Vercel: Project → Settings → Domains → agregar el dominio y copiar los registros DNS que indique en el proveedor donde se compró.
+
 ## Datos de contacto en la web
+
+- Reservas online: https://snakeskinlashstudio.setmore.com/
 
 - WhatsApp: +54 9 261 671-6742
 - Instagram: [@snakeskin.lash](https://instagram.com/snakeskin.lash)
