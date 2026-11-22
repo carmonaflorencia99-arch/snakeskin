@@ -31,6 +31,11 @@ Después abrí http://localhost:8080 (o el puerto que indique).
 3. Framework preset: **Other**. No hace falta build command ni output directory.
 4. **Deploy.** Cada cambio que se suba a `main` se publica solo.
 
+## Videos y CDN
+
+Vercel sirve todo desde su CDN global (Edge Network). `vercel.json` marca `media/` y el modelo 3D como caché de 1 año, así las visitas repetidas no vuelven a descargar nada.
+Cada video tiene dos calidades: `*-hd.mp4` (720p vertical / 1080p horizontal) y una liviana. La página elige HD en conexiones rápidas y la liviana con datos lentos o ahorro de datos.
+
 ## Tecnologías
 
 - [three.js](https://threejs.org/) 0.160 (desde jsDelivr) para el 3D, postprocesado bloom y carga del modelo GLB.

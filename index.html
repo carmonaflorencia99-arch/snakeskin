@@ -472,7 +472,7 @@ footer .mega{padding:.1em 0 .15em;overflow:visible;white-space:normal;word-break
     <div class="svc-group fade">
       <h3><span>Make up</span><span>Eventos</span></h3>
       <a class="svc" data-hover href="https://snakeskinlashstudio.setmore.com/" target="_blank" rel="noopener"><span class="n">13</span><span class="name">Maquillaje social<small>Para tu evento: te maquillo con productos de larga duración para que llegues divina al final de la noche.</small></span><span class="dur">60 min</span><span class="price">$90.000</span><span class="svc-go">Reservar →</span></a>
-      <div class="wide-vid"><video data-lazy src="media/makeup.mp4" poster="media/makeup.webp" muted loop playsinline preload="none"></video></div>
+      <div class="wide-vid"><video data-lazy data-src="media/makeup.mp4" data-hd="media/makeup-hd.mp4" poster="media/makeup.webp" muted loop playsinline preload="none"></video></div>
     </div>
   </section>
 
@@ -486,8 +486,8 @@ footer .mega{padding:.1em 0 .15em;overflow:visible;white-space:normal;word-break
         <p class="reels-big">Te reís, charlás o descansás. Lo decidís vos.</p>
         <p class="reels-small">Y sí, Lyra también trabaja acá: cobra en caricias y galletitas 🐾</p>
       </div>
-      <figure class="phone fade"><video data-lazy src="media/turno.mp4" poster="media/turno.webp" muted loop playsinline preload="none"></video><figcaption>Tu turno conmigo</figcaption></figure>
-      <figure class="phone fade"><video data-lazy src="media/lyra.mp4" poster="media/lyra.webp" muted loop playsinline preload="none"></video><figcaption>Lyra, mi recepcionista</figcaption></figure>
+      <figure class="phone fade"><video data-lazy data-src="media/turno.mp4" data-hd="media/turno-hd.mp4" poster="media/turno.webp" muted loop playsinline preload="none"></video><figcaption>Tu turno conmigo</figcaption></figure>
+      <figure class="phone fade"><video data-lazy data-src="media/lyra.mp4" data-hd="media/lyra-hd.mp4" poster="media/lyra.webp" muted loop playsinline preload="none"></video><figcaption>Lyra, mi recepcionista</figcaption></figure>
     </div>
     <div class="exp-grid">
       <div class="exp-card fade"><span class="num">01</span><div><h4>Llegás</h4><p>Te espera un té o un café, música tranqui y la camilla lista. Vos solo vení sin maquillaje en los ojos.</p></div></div>
@@ -597,10 +597,14 @@ footer .mega{padding:.1em 0 .15em;overflow:visible;white-space:normal;word-break
 (function(){
   // Loader counter
   const lc=document.getElementById('lcount'), lb=document.getElementById('lbar'), loader=document.getElementById('loader');
+  // Choose video quality: HD on fast connections, light on slow/data-saver
+  const nc=navigator.connection||{};
+  const HD = !nc.saveData && !/(^|-)2g|3g/.test(nc.effectiveType||'') && !(nc.downlink && nc.downlink<5);
+  window.__pickVid=(light,hd)=> HD && hd ? hd : light;
   let shown=0, target=70, introDone=false;
   const lv=document.getElementById('lvid');
   const finishIntro=()=>{introDone=true};
-  if(lv){ lv.src = matchMedia('(max-aspect-ratio: 1/1)').matches ? 'media/intro-m.mp4' : 'media/intro.mp4';
+  if(lv){ lv.src = matchMedia('(max-aspect-ratio: 1/1)').matches ? __pickVid('media/intro-m.mp4','media/intro-m-hd.mp4') : __pickVid('media/intro.mp4','media/intro-hd.mp4');
     lv.playbackRate=2; lv.addEventListener('loadedmetadata',()=>{lv.playbackRate=2;});
     lv.addEventListener('ended',finishIntro); lv.addEventListener('error',finishIntro);
     const pp=lv.play(); if(pp&&pp.catch) pp.catch(finishIntro); } else finishIntro();
@@ -635,8 +639,8 @@ footer .mega{padding:.1em 0 .15em;overflow:visible;white-space:normal;word-break
 
   // Lazy videos: load and play only when visible
   const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;
-    if(e.isIntersecting){ if(v.preload==='none'){v.preload='auto';v.load();} const p=v.play(); if(p&&p.catch)p.catch(()=>{}); }
-    else v.pause();}),{threshold:.25});
+    if(e.isIntersecting){ if(!v.src){ v.src=__pickVid(v.dataset.src,v.dataset.hd); v.preload='auto'; } const p=v.play(); if(p&&p.catch)p.catch(()=>{}); }
+    else v.pause();}),{threshold:.05, rootMargin:'600px 0px'});
   document.querySelectorAll('video[data-lazy]').forEach(v=>vio.observe(v));
 
   // Mobile booking bar: show after the hero, hide near the booking section
